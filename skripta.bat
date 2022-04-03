@@ -427,7 +427,7 @@ exit /b 0
 :rmshare
 echo Brisem Network Share
 net use z: /delete /y > nul 2>&1
-net share /delete %ime%%prez% > nul 2>&1
+net share /delete /y %ime%%prez% > nul 2>&1
 exit /b 0
 
 :rmfolder
