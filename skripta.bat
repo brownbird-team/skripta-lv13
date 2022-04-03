@@ -94,7 +94,10 @@ if %cnt% EQU 19 (
 ) else (
 	set /p prmpt="%ime%@skripta [%cnt%] > "
 )
-if "%prmpt%" NEQ "" (
+if "%prmpt%" EQU "" (
+	set prmpt=-1
+)
+if "%prmpt%" NEQ "-1" (
 	if "%prmpt%" EQU "c" (
 		goto end
 	) else if "%prmpt%" EQU "s" (
@@ -440,6 +443,12 @@ if exist %mydf%\Radno\ (
 	rmdir /s /q %mydf%\Radno\ > nul 2>&1
 ) else (
 	echo Direktorij Radno ne postoji
+)
+if exist %mydf%\Primjer\ (
+	echo Brisem direktorij Primjer
+	rmdir /s /q %mydf%\Primjer\ > nul 2>&1
+) else (
+	echo Direktorij Primjer ne postoji
 )
 if exist %mydf%\Random.txt (
 	echo Brisem datoteku Random.txt
